@@ -1,9 +1,6 @@
 package com.birdboot.core;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -20,47 +17,31 @@ public class BirdBootApplication {
     public BirdBootApplication() {
         try {
             System.out.println("服务器正在启动...");
+            // 在创建服务器BirdBootApplication对象时，为服务器创建套接字以及指定端口
             serverSocket = new ServerSocket(8088);
             System.out.println("服务器启动完毕!");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
+
     public void start() {
         try {
             System.out.println("一个客户端正在连接...");
+            // 等待客户端连接
             Socket socket = serverSocket.accept();
+            // 为每个客户端创建分配一个线程
+            new Thread(new ClientHandler(socket)).start();
             System.out.println("一个客户端连接成功!");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
-    private static class ClientHandler implements Runnable {
-        private final Socket socket;
-        private final String host;
-
-        public ClientHandler(Socket socket) {
-            this.socket = socket;
-            this.host = socket.getInetAddress().getHostAddress();
-        }
-
-        @Override
-        public void run() {
-            try {
-                InputStream fis = socket.getInputStream();
-                InputStreamReader isr = new InputStreamReader(fis);
-                BufferedReader br = new BufferedReader(isr);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     public static void main(String[] args) {
+        // 创建一个服务器BirdBootApplication对象
         BirdBootApplication bird = new BirdBootApplication();
+        // 启动服务器
         bird.start();
     }
 }
