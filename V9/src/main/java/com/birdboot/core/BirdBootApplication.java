@@ -28,12 +28,12 @@ public class BirdBootApplication {
     public void start() {
         while (true) {
             try {
-                System.out.println("一个客户端正在连接...");
+                System.out.println("正在等待客户端请求...");
                 // 等待客户端连接
                 Socket socket = serverSocket.accept();
                 // 为每个客户端创建分配一个线程
                 new Thread(new ClientHandler(socket)).start();
-                System.out.println("一个客户端连接成功!");
+                System.out.println("成功处理客户端!");
             } catch (IOException e) {
                 e.printStackTrace();
             }

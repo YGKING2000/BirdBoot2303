@@ -29,14 +29,25 @@ public class DispatcherServlet {
     public void service(HttpServletRequest request, HttpServletResponse response) {
         // 请求资源的路径
         String path = request.getUri();
+        // 创建消息正文所需要的文件对象
         File file = new File(baseDir, path);
-        if (path.matches("/")) {
-            file = new File(baseDir, "index.html");
-        } else if (!file.isFile()) {
-            file = new File(baseDir, "404.html");
+        if (file.isFile()) {
+            // 设置响应头
+            response.addHeader("Content-Type", "text/html");
+            response.addHeader("Content-Length", file.length() + "");
+            response.addHeader("Server", "BirdServer-YGKING");
+        } else {
+            // 设置状态行的状态码、状态说明
             response.setStatusCode(404);
             response.setStatusReason("NotFound");
+            // 修改响应正文所指向的文件
+            file = new File(baseDir, "404.html");
+            // 设置响应头
+            response.addHeader("Content-Type", "text/html");
+            response.addHeader("Content-Length", file.length() + "");
+            response.addHeader("Server", "BirdServer-YGKING");
         }
+        // 设置响应正文
         response.setContentFile(file);
     }
 }

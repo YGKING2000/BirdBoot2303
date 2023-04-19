@@ -6,7 +6,10 @@ import java.io.*;
 import java.net.Socket;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * @Description
@@ -22,6 +25,7 @@ public class HttpServletResponse {
     private String statusReason = "OK";
 
     // 响应头相关信息
+    private final Map<String, String> headers = new HashMap<>();
 
     // 响应正文相关信息
     private File contentFile;
@@ -54,8 +58,13 @@ public class HttpServletResponse {
 
     // 2.发送响应头的方法
     private void sendHeaders() throws IOException {
-        println("Content-Type: text/html");
-        println("Content-Length: " + contentFile.length());
+        Set<Map.Entry<String, String>> entrySet = headers.entrySet();
+        for (Map.Entry<String, String> entry : entrySet) {
+            String name = entry.getKey();
+            String value = entry.getValue();
+            println(name + ": " + value);
+        }
+
         // 调用方法时传空字符串，表示响应头部分发送结束
         println("");
     }
@@ -108,5 +117,17 @@ public class HttpServletResponse {
 
     public void setContentFile(File contentFile) {
         this.contentFile = contentFile;
+    }
+
+    /**
+     * @Description 添加一个响应头
+     * @Return void
+     * @Param String name
+     * @Param String value
+     * @Author YGKING
+     * @Date 2023/04/19 10:41:42
+     */
+    public void addHeader(String name, String value) {
+        headers.put(name, value);
     }
 }
