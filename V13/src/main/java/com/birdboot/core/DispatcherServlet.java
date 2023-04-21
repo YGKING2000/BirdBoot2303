@@ -47,8 +47,8 @@ public class DispatcherServlet {
                 // 修改响应正文所指向的文件
                 file = new File(baseDir, "404.html");
                 // 设置响应正文
-                response.setContentFile(file);
             }
+            response.setContentFile(file);
         }
     }
 }
