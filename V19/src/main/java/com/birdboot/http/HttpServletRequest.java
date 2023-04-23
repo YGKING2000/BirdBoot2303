@@ -59,7 +59,7 @@ public class HttpServletRequest {
         if (line.isEmpty()) {
             throw new EmptyRequestException();
         }
-        System.out.println(line);
+        // System.out.println(line);
         String[] list = line.split("\\s");
         method = list[0];
         uri = list[1];
@@ -67,7 +67,7 @@ public class HttpServletRequest {
         // 进一步解析uri
         parseURI();
 
-        parameters.forEach((k, v) -> System.out.println(k + ": " + v));
+        // parameters.forEach((k, v) -> System.out.println(k + ": " + v));
 
         // System.out.println("method: " + method);
         // System.out.println("uri: " + uri);
@@ -89,9 +89,9 @@ public class HttpServletRequest {
             queryString = data[1];
             parseParameters(queryString);
         }
-        System.out.println("请求路径:" + requestURI);
-        System.out.println("请求参数字符串:" + queryString);
-        System.out.println("请求参数:" + parameters);
+        // System.out.println("请求路径:" + requestURI);
+        // System.out.println("请求参数字符串:" + queryString);
+        // System.out.println("请求参数:" + parameters);
     }
 
     /**
@@ -129,7 +129,7 @@ public class HttpServletRequest {
             String[] data = line.split("(: )");
             headers.put(data[0], data[1]);
         }
-        headers.forEach((k, v) -> System.out.println("请求头: " + k + " = " + v));
+        // headers.forEach((k, v) -> System.out.println("请求头: " + k + " = " + v));
     }
 
     /**
