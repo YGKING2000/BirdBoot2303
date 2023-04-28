@@ -4,8 +4,12 @@ import com.birdboot.http.EmptyRequestException;
 import com.birdboot.http.HttpServletRequest;
 import com.birdboot.http.HttpServletResponse;
 
+import javax.annotation.Resource;
 import java.io.*;
+import java.lang.annotation.Annotation;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Description 客户端处理器
@@ -14,6 +18,7 @@ import java.net.Socket;
  * @Date 2023/04/17 10:21
  * @Version 1.0
  */
+@Resource
 public class ClientHandler implements Runnable {
     private final Socket socket;
 

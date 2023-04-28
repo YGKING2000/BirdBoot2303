@@ -9,11 +9,11 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @Description
- * @ClassName HttpServletResponse
- * @Author YGKING e-mail:hrd18960706057@163.com
- * @Date 2023/04/18 13:13
- * @Version 1.0
+ * @description
+ * @className HttpServletResponse
+ * @author YGKING e-mail:hrd18960706057@163.com
+ * @date 2023/04/18 13:13
+ * @version 1.0
  */
 public class HttpServletResponse {
     private final Socket socket;
@@ -34,12 +34,9 @@ public class HttpServletResponse {
     }
 
     /**
-     * @Description 发送全部响应给客户端的方法
-     * @Return void
-     * @Param File file
-     * @Param String code
-     * @Author YGKING
-     * @Date 2023/04/18 13:37:13
+     * @description
+     * @author YGKING
+     * @date 2023/04/26 21:09:12
      */
     public void response() throws IOException {
         // 1.发送响应行
@@ -82,11 +79,10 @@ public class HttpServletResponse {
     }
 
     /**
-     * @Description 向客户端发送一行字符串的方法
-     * @Return void
-     * @Param String line
-     * @Author YGKING
-     * @Date 2023/04/18 11:23:16
+     * @description
+     * @param line String
+     * @author YGKING
+     * @date 2023/04/26 21:09:04
      */
     private void println(String line) throws IOException {
         OutputStream out = socket.getOutputStream();
@@ -124,24 +120,21 @@ public class HttpServletResponse {
     }
 
     /**
-     * @Description 添加一个响应头
-     * @Return void
-     * @Param String name
-     * @Param String value
-     * @Author YGKING
-     * @Date 2023/04/19 10:41:42
+     * @description 添加一个响应头
+     * @param name String
+     * @param value String
+     * @author YGKING
+     * @date 2023/04/26 21:04:19
      */
     public void addHeader(String name, String value) {
         headers.put(name, value);
     }
 
     /**
-     * @Description 响应浏览器时要求其重定向到指定地址访问
-     * @Return void
-     * @Param String location
-     * @Author YGKING
-     * @Date 2023/04/20 09:45:35
-     * @Version 1.0
+     * @description
+     * @param location String
+     * @author YGKING
+     * @date 2023/04/26 21:08:47
      */
     public void sendRedirect(String location) {
         // 1.添加响应行

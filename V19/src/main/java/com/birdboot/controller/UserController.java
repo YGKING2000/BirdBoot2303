@@ -35,7 +35,7 @@ public class UserController {
      * @Date 2023/04/20 10:44:57
      * @Version 1.0
      */
-    @RequestMapping("/loginUser")
+    @RequestMapping(value = "/loginUser")
     public void login(HttpServletRequest request, HttpServletResponse response) {
         String username = request.getParameters("username");
         String password = request.getParameters("password");

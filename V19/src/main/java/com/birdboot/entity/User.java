@@ -15,7 +15,29 @@ public class User implements Serializable {
     private String nickname;
     private int age;
 
+    @Override
+    public String toString() {
+        return "User{" + "username='" + username + '\'' + ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' + ", age=" + age + '}';
+    }
+
     public User() {
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public User(String nickname, int age) {
+        this.nickname = nickname;
+        this.age = age;
+    }
+
+    public User(String password, String nickname, int age) {
+        this.password = password;
+        this.nickname = nickname;
+        this.age = age;
     }
 
     public User(String username, String password, String nickname, int age) {

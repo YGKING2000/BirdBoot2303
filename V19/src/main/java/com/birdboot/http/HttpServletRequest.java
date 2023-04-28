@@ -6,10 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.Socket;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @Description HTTP服务器请求
@@ -51,7 +48,7 @@ public class HttpServletRequest {
      * @Return void
      * @Param
      * @Author YGKING
-     * @Date 2023/04/19 15:21:55
+     * @Date 2023/04/24 21:13:52
      * @Version 1.0
      */
     private void parseRequestLine() throws IOException, EmptyRequestException {
@@ -68,7 +65,6 @@ public class HttpServletRequest {
         parseURI();
 
         // parameters.forEach((k, v) -> System.out.println(k + ": " + v));
-
         // System.out.println("method: " + method);
         // System.out.println("uri: " + uri);
         // System.out.println("protocol: " + protocol);
@@ -99,7 +95,7 @@ public class HttpServletRequest {
      * @Return void
      * @Param String line
      * @Author YGKING
-     * @Date 2023/04/20 14:30:12
+     * @Date 2023/04/24 21:14:07
      * @Version 1.0
      */
     private void parseParameters(String line) {
@@ -157,12 +153,10 @@ public class HttpServletRequest {
     }
 
     /**
-     * @Description 读取一行客户端发送的消息的方法
-     * @Return java.lang.String
-     * @Param
-     * @Author YGKING
-     * @Date 2023/04/19 15:22:31
-     * @Version 1.0
+     * @description 读取一行客户端发送的消息的方法
+     * @return java.lang.String
+     * @author YGKING
+     * @date 2023/04/27 09:53:35
      */
     // 通常被重用的代码不自己解决异常，而是抛出给使用者
     public String readLine() throws IOException {
