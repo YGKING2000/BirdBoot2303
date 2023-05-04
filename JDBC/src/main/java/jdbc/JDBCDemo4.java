@@ -14,28 +14,8 @@ import java.sql.Statement;
  */
 public class JDBCDemo4 {
     public static void main(String[] args) {
-        /*try (
-                Connection connection = DBUtil.getConnection()
-        ) {
-            Statement statement = connection.createStatement();
-            String sql = "SELECT id, name, title, salary FROM teacher";
-            ResultSet resultSet = statement.executeQuery(sql);
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                String title = resultSet.getString("title");
-                int salary = resultSet.getInt("salary");
-                if (title.length() > 2) {
-                    System.out.println(id + "\t " + name + "\t " + title + "\t " + salary);
-                } else {
-                    System.out.println(id + "\t " + name + "\t " + title + "\t\t " + salary);
-                }
-            }
-        } catch (SQLException troubles) {
-            troubles.printStackTrace();
-        }*/
         try (
-                Connection connection = DBUtil.getConnection();
+                Connection connection = DBUtil.getConnection()
         ) {
             Statement statement = connection.createStatement();
             String sql = "SELECT id, name, title, salary FROM teacher";

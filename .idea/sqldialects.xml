@@ -3,9 +3,17 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/JDBC/src/main/java/homework/Test2.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/JDBC/src/main/java/homework/Test3.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/JDBC/src/main/java/homework/Test4.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/JDBC/src/main/java/jdbc/JDBCDemo1.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/JDBC/src/main/java/jdbc/JDBCDemo10.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/JDBC/src/main/java/jdbc/JDBCDemo2.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/JDBC/src/main/java/jdbc/JDBCDemo3.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/JDBC/src/main/java/jdbc/JDBCDemo4.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/JDBC/src/main/java/jdbc/JDBCDemo5.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/JDBC/src/main/java/jdbc/JDBCDemo6.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/JDBC/src/main/java/jdbc/JDBCDemo7.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/JDBC/src/main/java/jdbc/JDBCDemo8.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/JDBC/src/main/java/jdbc/JDBCDemo9.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/V20/src/main/java/com/birdboot/controller/UserController.java" dialect="GenericSQL" />
   </component>
 </project>
