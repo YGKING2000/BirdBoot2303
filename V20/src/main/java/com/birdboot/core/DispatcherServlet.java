@@ -22,14 +22,12 @@ import java.util.Objects;
  * @Version 1.0
  */
 public class DispatcherServlet {
-    private static File dir;
     private static File baseDir;
 
     static {
         try {
-            dir = new File(Objects.requireNonNull(
-                    DispatcherServlet.class.getClassLoader().getResource(".")).toURI());
-            baseDir = new File(dir, "static");
+            baseDir = new File(Objects.requireNonNull(
+                    DispatcherServlet.class.getClassLoader().getResource("./static")).toURI());
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }

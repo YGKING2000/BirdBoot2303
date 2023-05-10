@@ -31,16 +31,12 @@ public class HttpServletRequest {
     // 将异常抛出给
     public HttpServletRequest(Socket socket) throws IOException, EmptyRequestException {
         this.socket = socket;
-        try {
-            // 1.解析请求行
-            parseRequestLine();
-            // 2.解析消息头
-            parseRequestHeaders();
-            // 3.解析消息正文
-            parseContent();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // 1.解析请求行
+        parseRequestLine();
+        // 2.解析消息头
+        parseRequestHeaders();
+        // 3.解析消息正文
+        parseContent();
     }
 
     /**
@@ -153,8 +149,8 @@ public class HttpServletRequest {
     }
 
     /**
-     * @description 读取一行客户端发送的消息的方法
      * @return java.lang.String
+     * @description 读取一行客户端发送的消息的方法
      * @author YGKING
      * @date 2023/04/27 09:53:35
      */
