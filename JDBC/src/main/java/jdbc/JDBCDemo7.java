@@ -30,7 +30,7 @@ public class JDBCDemo7 {
                         "AND password = '" + password + "'";
                 ResultSet resultSet = statement.executeQuery(sql);
                 if (resultSet.next()) {
-                    String nickname = resultSet.getString("nickname");
+                    String nickname = resultSet.getString("age");
                     System.out.println("登录成功，欢迎" + nickname + "!");
                     break;
                 } else {
