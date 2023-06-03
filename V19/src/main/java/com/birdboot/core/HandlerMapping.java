@@ -29,10 +29,6 @@ public class HandlerMapping {
             e.printStackTrace();
         }
         initMapping();
-        // Set<Map.Entry<String, Method>> entrySet = mapping.entrySet();
-        // for (Map.Entry<String, Method> entry : entrySet) {
-        //     System.out.println(entry.getKey() + "   " + entry.getValue());
-        // }
     }
 
     private static void initMapping() {
@@ -41,7 +37,7 @@ public class HandlerMapping {
             assert files != null;
             for (File file : files) {
                 String fileName = file.getName().replace(".class", "");
-                Class cls = Class.forName("com.birdboot.controller." + fileName);
+                Class<?> cls = Class.forName("com.birdboot.controller." + fileName);
                 if (cls.isAnnotationPresent(Controller.class)) {
                     Method[] methods = cls.getMethods();
                     for (Method method : methods) {
